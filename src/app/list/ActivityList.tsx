@@ -19,15 +19,24 @@ export default function ActivityList() {
       try {
         const response = await fetch('/api')
         const result = await response.json()
-        console.log('Fetched data:', result)
         setData(result.activities)
       } catch (error) {
         console.error('Error fetching data:', error)
       }
     }
-    console.log('fetching data')
     fetchData()
   }, [])
+
+  const decorateTitle = (title: string) => {
+    const first = title.split(' ')[0]
+    const rest = title.split(' ').slice(1).join(' ')
+    return (
+      <span>
+        <span className="underline-magical">{first}</span>
+        {' ' + rest}
+      </span>
+    )
+  }
 
   return (
     <div>
@@ -35,7 +44,7 @@ export default function ActivityList() {
         data.map((act) => {
           return (
             <div key={act.id} className="border p-4 my-4">
-              <h2 className="text-xl font-bold">{act.title}</h2>
+              <h2 className="text-xl font-bold">{decorateTitle(act.title)}</h2>
               <p>{act.note}</p>
             </div>
           )
