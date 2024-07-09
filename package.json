@@ -7,13 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "ts-node scripts/seed.ts"
+    "seed": "ts-node scripts/seed.ts",
+    "db-clear": "ts-node scripts/db-reset.ts"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.4.1",
     "@prisma/client": "^5.16.1",
     "csv-parser": "^3.0.0",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
     "next": "14.2.4",
+    "next-auth": "^5.0.0-beta.19",
     "react": "^18",
     "react-dom": "^18"
   },

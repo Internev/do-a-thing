@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloudy Background Effect</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .cloudy-bg {
+        background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0) 70%
+          ),
+          radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.6) 20%,
+            rgba(255, 255, 255, 0) 80%
+          );
+        background-size: 200% 200%;
+        animation: moveClouds 20s linear infinite;
+      }
+
+      @keyframes moveClouds {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-screen w-full flex items-center justify-center bg-blue-500">
+    <div class="h-full w-full cloudy-bg"></div>
+  </body>
+</html>

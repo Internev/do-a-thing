@@ -1,3 +1,4 @@
+import { SignIn } from './components/signIn'
 import ActivityList from './list/ActivityList'
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <p className="text-xl mt-4">
           Let's do a <span className="underline-magical">thing!</span>
         </p>
+        <SignIn />
         <ActivityList />
       </div>
     </main>
