@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 pb-4 underline decoration-wavy">
           <svg viewBox="0 0 600 300">
             <symbol id="s-text">
-              <text text-anchor="middle" x="50%" y="50%" dy=".35em">
+              <text textAnchor="middle" x="50%" y="50%" dy=".35em">
                 Do a thing
               </text>
             </symbol>
