@@ -3,41 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cloudy Background Effect</title>
+    <title>Button Hover Animation</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
     <style>
-      .cloudy-bg {
-        background: radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.8) 0%,
-            rgba(255, 255, 255, 0) 70%
-          ),
-          radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.6) 20%,
-            rgba(255, 255, 255, 0) 80%
-          );
+      .gradient-animation {
         background-size: 200% 200%;
-        animation: moveClouds 20s linear infinite;
+        background-image: linear-gradient(
+          90deg,
+          rgba(255, 0, 150, 1) 0%,
+          rgba(0, 204, 255, 1) 100%
+        );
+        transition: background-position 0.5s ease-in-out;
       }
-
-      @keyframes moveClouds {
-        0% {
-          background-position: 0% 0%;
-        }
-        50% {
-          background-position: 100% 100%;
-        }
-        100% {
-          background-position: 0% 0%;
-        }
+      .gradient-animation:hover {
+        background-position: 100% 0;
       }
     </style>
   </head>
-  <body class="h-screen w-full flex items-center justify-center bg-blue-500">
-    <div class="h-full w-full cloudy-bg"></div>
+  <body class="flex items-center justify-center h-screen bg-gray-200">
+    <button
+      class="px-6 py-3 font-semibold text-white rounded-lg gradient-animation"
+    >
+      Hover Me
+    </button>
   </body>
 </html>

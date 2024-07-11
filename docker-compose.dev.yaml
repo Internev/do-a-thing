@@ -1,0 +1,42 @@
+# docker-compose.dev.yaml
+
+version: '3.8'
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      target: dev
+    restart: always
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: true
+      WATCHPACK_POLLING: true
+      DATABASE_URL: postgresql://superuser:superpassword@postgres:5432/do_a_thing?schema=public
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: superuser
+      POSTGRES_PASSWORD: superpassword
+      POSTGRES_DB: do_a_thing
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: superuser
+      POSTGRES_PASSWORD: superpassword
+      POSTGRES_DB: do_a_thing
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

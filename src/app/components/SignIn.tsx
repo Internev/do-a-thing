@@ -2,6 +2,7 @@ import { signIn } from '@/auth'
 import Button from './Button'
 
 export function SignIn() {
+  console.log('🤔 process.env.DATABASE_URL', process.env.DATABASE_URL)
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <div className="container mx-auto w-2/5 h-2/5 bg-white rounded border-2 flex flex-col items-center justify-around drop-shadow-2xl">
